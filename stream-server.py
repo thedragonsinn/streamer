@@ -60,9 +60,10 @@ async def handle_file_request(stream_request) -> None | StreamResponse | Respons
         return None
 
 
+
 async def _stream_file(stream_request: BaseRequest) -> StreamResponse | Response:
     message_link = stream_request.query.get("link")
-    requester_ip = stream_request.remote
+    requester_ip = stream_request.headers.get("X-Forwarded-For") or stream_request.remote
 
     await bot.log_text(
         text=f"{stream_request} {requester_ip} - {message_link}", type="info"

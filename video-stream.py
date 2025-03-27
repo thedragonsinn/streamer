@@ -101,9 +101,7 @@ async def init_local_site() -> web.AppRunner:
     await runner.setup()
 
     site = web.TCPSite(
-        runner=runner,
-        host=getenv("STREAM_URL", "0.0.0.0"),
-        port=int(getenv("STREAM_PORT", 8888)),
+        runner=runner, host=getenv("STREAM_URL", "0.0.0.0"), port=int(getenv("STREAM_PORT", 8888))
     )
     await site.start()
 

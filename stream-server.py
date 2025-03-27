@@ -14,7 +14,7 @@ from ub_core import BOT, Message, bot
 from ub_core.utils import aio, get_filename_from_mime, get_tg_media_details
 
 STREAM_URL = getenv("STREAM_URL")
-STREAM_PORT = int(getenv("STREAM_PORT", 0))
+STREAM_PORT = int(getenv("API_PORT", 0))
 CACHE_CHANNEL = int(getenv("CACHE_CHANNEL", 0))
 
 
